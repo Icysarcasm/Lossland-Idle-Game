@@ -1,1 +1,46 @@
-kvQB5ByZ
+Let's make a game!
+  name:Lossland
+  author:Icysarcasm
+Settings
+  building cost increase:110%
+  building cost refund: 50%
+Layout
+  use default
+Buttons
+  *woodbutton
+  desc: Scavenge Wood
+  on click: yield 1 Wood
+  on click: 
+      if (chance(25%)) yield 1 Stone
+  on click: 
+      if (have stoneaxe and chance(15%)) yield 1 Blood
+  *huntbutton
+  desc: Hunt animals for Hide
+  on click: yield 1 Hide
+  req: have (stoneaxe)
+Resources 
+  *Wood
+  desc: Scraps of wood, I can work with these.
+  *Stone
+  desc: Small Stones, Usable.
+  hidden when 0
+  *Blood
+  desc: Mine, or others. Doesn't matter.
+  hidden when 0
+  *Hide
+  desc: Animal Hide, good quality.
+  hidden when 0 
+Upgrades
+ *stoneaxe
+  name: Stone Axe
+  desc: Suprisingly Sharp, Doubles Wood gained from Scavenging
+  cost: 2 Stone
+  cost: 10 Wood
+  passive: multiply yield of woodButton by 2
+  req: 1 Stone earned
+*firstblood
+  name: First Blood
+  desc: An ancient prayer for good harvests. Multiply Wood scavenged by 4
+  cost: 1 Blood
+  req: 1 Blood earned
+  passive: multiply yield of woodButton by 4
